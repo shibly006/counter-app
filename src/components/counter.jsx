@@ -29,8 +29,7 @@ class Counter extends React.Component {
                         className="btn btn-secondary btn-sm"
                         >
                         Increment
-                    </button>
-                    <ul>{this.state.tags.map(tag => <li key={tag}>{tag}</li>)}</ul>                    
+                    </button>                    
                 </div>
                 );        
     }
