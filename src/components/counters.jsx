@@ -22,7 +22,7 @@ class Counters extends React.Component {
         return (
             <div>
                 {this.state.counters.map(counter => (
-                    <Counter key={counter.id} onDelete={this.hanldeDelete} value={counter.value} id={counter.id}>
+                    <Counter key={counter.id} onDelete={this.hanldeDelete} counter={counter}>
                         <h4>Counter: {counter.id}</h4>
                     </Counter>
                 ))}
