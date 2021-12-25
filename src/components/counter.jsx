@@ -24,13 +24,22 @@ class Counter extends React.Component {
         console.log('Props', this.props);        
         return (
                 <div>     
-                    {this.props.children}               
+                    {/* {this.props.children}                */}
+                    
                     <span className={this.getBadgeClsses()}>{this.formatCount()}</span>
+
                     <button 
                         onClick={()=>this.handleIncrement({id: 1})} 
                         className="btn btn-secondary btn-sm"
                         >
                         Increment
+                    </button>
+
+                    <button 
+                        onClick={ () => this.props.onDelete(this.props.id)} 
+                        className="btn btn-danger btn-sm m-2"
+                        >
+                        Delete
                     </button>                    
                 </div>
                 );        
