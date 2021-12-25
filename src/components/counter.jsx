@@ -1,35 +1,15 @@
 import React, { Component } from 'react';
 
 class Counter extends React.Component {
-    state = {
-        value : this.props.counter.value,
-        tags: ["tag1", "tag2", "tag3"]       
-    };
     
-    // constructor(){
-    //     super();
-    //     console.log("Constructor", this);
-    //     this.handleIncrement= this.handleIncrement.bind(this);
-    // }
-
-    handleIncrement = (product) => {
-        // console.log('Increment Clicked', this);        
-        // this.state.count++;                
-
-        console.log(product);
-        this.setState({value: this.state.value+1});    //To notify React the change        
-    };
-
     render() {         
-        console.log('Props', this.props);        
+        // console.log('Props', this.props);        
         return (
-                <div>     
-                    {/* {this.props.children}                */}
-                    
+                <div>                                             
                     <span className={this.getBadgeClsses()}>{this.formatCount()}</span>
 
                     <button 
-                        onClick={()=>this.handleIncrement({id: 1})} 
+                        onClick={()=>this.props.onIncrement(this.props.counter)} 
                         className="btn btn-secondary btn-sm"
                         >
                         Increment
@@ -47,12 +27,12 @@ class Counter extends React.Component {
 
     getBadgeClsses() {
         let classes = "badge m-2 badge-";
-        classes += (this.state.value == 0 )?  "warning" : "primary";
+        classes += (this.props.counter.value == 0 )?  "warning" : "primary";
         return classes;
     }
 
     formatCount(){
-        const {value: count} = this.state;
+        const {value: count} = this.props.counter;
         return count == 0 ? "Zero" : count; 
         
         // const x = <h1>Zero</h1>;

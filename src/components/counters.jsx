@@ -26,6 +26,16 @@ class Counters extends React.Component {
         this.setState({counters});
     }
 
+    handleIncrement = counter => {
+        // console.log(counter);
+        const counters = [...this.state.counters]
+        const ind = counters.indexOf(counter);
+        counters[ind] = {...counter};
+        counters[ind].value++;
+        this.setState({counters});
+        // this.setState({value: this.state.value+1});    //To notify React the change        
+    };
+
     render() { 
         return (
             <div>
@@ -33,7 +43,7 @@ class Counters extends React.Component {
                 onClick={this.handleReset}
                 className="btn btn-primary btn-sm m-2">Reset</button>
                 {this.state.counters.map(counter => (
-                    <Counter key={counter.id} onDelete={this.hanldeDelete} counter={counter}>
+                    <Counter key={counter.id} onIncrement={this.handleIncrement} onDelete={this.hanldeDelete} counter={counter}>
                         <h4>Counter: {counter.id}</h4>
                     </Counter>
                 ))}
